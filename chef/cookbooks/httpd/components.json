@@ -21,14 +21,13 @@
                 "php_mod_enabled": "true",
                 "server_admin": "webmaster@orpheus.ibm.com",
                 "server_name": "orpheus.ibm.com",
-                "server_root": "/etc/httpd",
                 "version": "2.4",
                 "vhosts_enabled": "false"
             },
             "ibm": {
-                "repo_password": "",
-                "repo_user": "repouser",
-                "sw_repo_root": ""
+                "sw_repo": "",
+                "sw_repo_password": "",
+                "sw_repo_user": "repouser"
             }
         },
         "depends_on": [],
@@ -36,6 +35,14 @@
         "displayname": "httpd24-base-install",
         "name": "httpd24-base-install",
         "objectname": "httpd24-base-install",
+        "run_list": [
+            "recipe[httpd::prereq]",
+            "recipe[httpd::install]",
+            "recipe[httpd::config_httpd_conf]",
+            "recipe[httpd::service]",
+            "recipe[httpd::gather_evidence]",
+            "recipe[httpd::cleanup]"
+        ],
         "type": "chef_role"
     },
     {
@@ -78,7 +85,6 @@
                     }
                 },
                 "server_admin": "webmaster",
-                "server_root": "/etc/httpd",
                 "ssl": {
                     "certificate_name": "global_cert",
                     "certificate_path": "/etc/httpd/ssl",
@@ -197,9 +203,9 @@
                 }
             },
             "ibm": {
-                "repo_password": "",
-                "repo_user": "repouser",
-                "sw_repo_root": ""
+                "sw_repo": "",
+                "sw_repo_password": "",
+                "sw_repo_user": "repouser"
             }
         },
         "depends_on": [],
@@ -207,6 +213,16 @@
         "displayname": "httpd24-ssl-vhosts",
         "name": "httpd24-ssl-vhosts",
         "objectname": "httpd24-ssl-vhosts",
+        "run_list": [
+            "recipe[httpd::prereq]",
+            "recipe[httpd::install]",
+            "recipe[httpd::config_httpd_conf]",
+            "recipe[httpd::config_ssl]",
+            "recipe[httpd::config_vhosts]",
+            "recipe[httpd::service]",
+            "recipe[httpd::gather_evidence]",
+            "recipe[httpd::cleanup]"
+        ],
         "type": "chef_role"
     }
 ]

@@ -6,12 +6,15 @@
 # <> Prerequisites recipe (prereq.rb)
 # <> Perform prerequisite tasks.
 
+ibm_cloud_utils_hostsfile_update 'update_the_etc_hosts_file' do
+  action :updateshosts
+end
+
 dir_owner = node['httpd']['os_users']['web_content_owner']['name']
 dir_owner.empty? && dir_owner = 'root'
 validation_script = "#{node['ibm']['evidence_path']['unix']}/http_validation.sh"
-virtual_hosts = node['httpd']['virtualhosts']
-ssl_port = ''
-ssl_enabled = ''
+ssl_port = node['httpd']['ssl']['https_port']
+ssl_enabled = node['httpd']['ssl']['install_mod_ssl']
 
 #TODO - Check disk space
 # create OS users and groups
@@ -60,26 +63,16 @@ directory node['httpd']['document_root'] do
   recursive true
 end
 
+# Update the package cache
+apt_update 'update' do
+  action :update
+  only_if { node['platform_family'] == 'debian' }
+end
+
 # Install the prereq packages
 node['httpd']['prereq_packages'].each do |p|
   package p do
     action :install
-  end
-end
-
-# This will only work if the VM has access to rubygems.org
-# Otherwise the gem should be installed during bootstrap
-chef_gem 'chef-vault' do
-  action :install
-  compile_time false
-end
-
-# Prepare validation script
-
-virtual_hosts.each do |_vhost_name, vhost|
-  if vhost['ssl_enabled'] == 'true'
-    ssl_enabled = vhost['ssl_enabled']
-    ssl_port = vhost['vhost_listen']
   end
 end
 
@@ -89,6 +82,13 @@ directory node['ibm']['evidence_path']['unix'] do
   action :create
   mode '0755'
   recursive true
+end
+
+directory node['httpd']['log_dir'] do
+  action :create
+  mode '0755'
+  recursive true
+  only_if { node['platform_family'] == 'debian' }
 end
 
 template validation_script do
@@ -105,5 +105,7 @@ template validation_script do
   )
   if node['platform_family'] == 'rhel'
     not_if 'rpm -q httpd'
+  elsif node['platform_family'] == 'debian'
+    not_if 'dpkg -l apache2'
   end
 end

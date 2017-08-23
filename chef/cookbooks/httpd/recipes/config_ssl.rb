@@ -23,8 +23,13 @@ virtual_hosts.each do |_key, vhost|
   end
 end
 
+template_dst = if node['platform_family'] == 'debian'
+                   node['httpd']['server_root'] + '/mods-enabled'
+               else
+                   node['httpd']['server_root'] + '/conf.d'
+               end
 
-template "#{node['httpd']['server_root']}/conf.d/ssl.conf" do
+template "#{template_dst}/ssl.conf" do
   source 'ssl.conf.erb'
   cookbook 'httpd' # specified to avoid FC033 warning: https://github.com/acrmp/foodcritic/issues/449
   owner 'root'

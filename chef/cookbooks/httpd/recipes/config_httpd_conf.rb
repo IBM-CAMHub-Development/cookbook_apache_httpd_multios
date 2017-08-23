@@ -6,14 +6,22 @@
 # <> Configure httpd server recipe (config_httpd_conf.rb)
 # <> Setup the main server configuration file
 
-template_name = if node['httpd']['version'] == '2.4' && node['platform_version'].start_with?("7.")
-                  'httpd24.conf.erb'
-                else
-                  'httpd.conf.erb'
-                end
+template_src = if node['httpd']['version'] == '2.4' && node['platform_version'].start_with?("7.")
+                 'httpd24.conf.erb'
+               elsif node['platform_family'] == 'debian'
+                 'apache2.conf.erb'
+               else
+                 'httpd.conf.erb'
+               end
 
-template "#{node['httpd']['server_root']}/conf/httpd.conf" do
-  source template_name
+template_dst = if node['platform_family'] == 'debian'
+                   node['httpd']['server_root'] + '/apache2.conf'
+               else
+                   node['httpd']['server_root'] + '/conf/httpd.conf'
+               end
+
+template template_dst do
+  source template_src
   cookbook 'httpd' # specified to avoid FC033 warning: https://github.com/acrmp/foodcritic/issues/449
   owner 'root'
   group 'root'
@@ -54,7 +62,19 @@ template "#{node['httpd']['server_root']}/conf/httpd.conf" do
     :enable_send_file => node['httpd']['enable_send_file'],
     :vhosts_enabled => node['httpd']['vhosts_enabled']
   )
-  if node['httpd']['install_from_repo'] == 'false'
-    notifies :restart, "service[#{node['httpd']['service_name']}]", :immediate
-  end
+  notifies :restart, "service[#{node['httpd']['service_name']}]", :immediate
+end
+
+template "/etc/apache2/ports.conf" do
+  source "ports.conf.erb"
+  cookbook 'httpd' # specified to avoid FC033 warning: https://github.com/acrmp/foodcritic/issues/449
+  owner 'root'
+  group 'root'
+  mode node['httpd']['conf_file_mode']
+  variables(
+    :listen => node['httpd']['listen'],
+    :listen_ssl => node['httpd']['ssl']['https_port']
+  )
+  only_if { node['platform_family'] == 'debian' }
+  notifies :restart, "service[#{node['httpd']['service_name']}]", :immediate
 end

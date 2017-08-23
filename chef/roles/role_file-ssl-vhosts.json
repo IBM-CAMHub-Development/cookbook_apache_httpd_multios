@@ -4,9 +4,9 @@
   "json_class": "Chef::Role",
   "default_attributes": {
     "ibm": {
-      "sw_repo_root": "",
-      "repo_password": "",
-      "repo_user": "repouser"
+      "sw_repo": "",
+      "sw_repo_password": "",
+      "sw_repo_user": "repouser"
     },
     "httpd": {
       "os_users": {
@@ -21,7 +21,6 @@
       "server_admin": "webmaster",
       "log_dir": "/var/log/httpd",
       "log_level": "info",
-      "server_root": "/etc/httpd",
       "document_root": "/var/www/html5",
       "tarball": "httpd24-1.1-5.el6.x86_64.tar.gz",
 

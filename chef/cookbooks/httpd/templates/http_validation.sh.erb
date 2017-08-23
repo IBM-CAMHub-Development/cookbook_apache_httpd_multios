@@ -16,20 +16,20 @@ ge_pass() {
 
 # Verify install_dir, catalina_dir, daemon user are correct
 /bin/ps axo user:12,pid,cmd | grep -v grep | \
-  grep httpd | \
+  grep -E "httpd|apache2" | \
   grep <%= @httpd_user %> && \
   ge_pass "Process running under user <%= @httpd_user %>" || \
   ge_fail "Process is not running as prescribed."
 
 # Verify httpd is running on prescribed web access port
-netstat -tulpn | grep httpd |
+netstat -tulpn | grep -E "httpd|apache2" |
   grep ":<%= @listen %> " && \
   ge_pass "httpd is listening on prescribed http port <%= @listen %>" || \
   ge_fail "httpd is NOT listening on prescribed http port <%= @listen %>"
 
 # Verify httpd is running on prescribed SSL port (if requested)
 <% if @ssl_enabled == 'true' %>
-  netstat -tulpn | grep httpd |
+  netstat -tulpn | grep -E "httpd|apache2" |
   grep ":<%= @ssl_port %> " && \
   ge_pass "httpd is listening on prescribed https port <%= @ssl_port %>" || \
   ge_fail "httpd is NOT listening on prescribed https port <%= @ssl_port %>"

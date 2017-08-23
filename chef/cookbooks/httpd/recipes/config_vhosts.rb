@@ -10,6 +10,14 @@
 dir_owner = node['httpd']['os_users']['web_content_owner']['name']
 dir_owner.empty? && dir_owner = 'root'
 
+# Disable default sites on ubuntu
+['000-default', 'default-ssl'].each do |site|
+  execute "disabling #{site}" do
+    command "a2dissite #{site}"
+    only_if { node['platform_family'] == 'debian' }
+  end
+end
+
 # Create Vhost directories
 virtual_hosts = node['httpd']['virtualhosts']
 
@@ -65,7 +73,7 @@ virtual_hosts.each do |vhost_name, vhost|
     end
 
     case node['platform_family']
-    when 'rhel'
+    when 'rhel', 'debian'
       # Generate certificate
       unless File.exist?("#{cert_path}/#{cert_file}")
         bash "Generate self-signed certificate for #{vhost_name}" do
@@ -83,9 +91,23 @@ virtual_hosts.each do |vhost_name, vhost|
     end
   end
 
+  template_dst = if node['platform_family'] == 'debian'
+                   node['httpd']['server_root'] + '/sites-enabled/'
+                 else
+                   node['httpd']['server_root'] + '/conf.d/'
+                 end
+  
+  #Enable proxy on debian
+  ['proxy', 'proxy_http', 'proxy_balancer'].each do |mod|
+    execute "enable #{mod}" do
+      command "a2enmod #{mod}"
+      only_if { node['httpd']['proxy'] || vhost['proxy'] }
+      only_if { node['platform_family'] == 'debian' }
+    end
+  end
 
   # Create Vhost configuration file
-  template "#{node['httpd']['server_root']}/conf.d/#{vhost['server_name']}.conf" do
+  template "#{template_dst}#{vhost['server_name']}.conf" do
     source "vhost.conf.erb"
     cookbook 'httpd'
     owner 'root'

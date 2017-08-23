@@ -8,7 +8,7 @@
 
 evidence_dir = node['ibm']['evidence_path']['unix']
 evidence_tar = node['httpd']['evidence_zip']
-httpd_logs = "#{node['httpd']['install_dir']}/etc/httpd/logs/*"
+httpd_logs = "#{node['httpd']['log_dir']}/*"
 validation_script = "#{node['ibm']['evidence_path']['unix']}/http_validation.sh"
 
 # Run validation script
