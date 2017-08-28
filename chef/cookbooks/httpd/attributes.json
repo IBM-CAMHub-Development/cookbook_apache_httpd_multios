@@ -9,7 +9,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "custom_log": {
@@ -21,7 +21,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "custom_log_format": {
@@ -33,7 +33,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "data_dir_mode": {
@@ -45,7 +45,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "directory_index": {
@@ -57,7 +57,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "document_root": {
@@ -69,7 +69,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "enable_MMAP": {
@@ -81,7 +81,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "enable_send_file": {
@@ -93,7 +93,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "error_log": {
@@ -105,7 +105,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "hostname_lookups": {
@@ -117,7 +117,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "httpd_home": {
@@ -129,7 +129,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "install_dir": {
@@ -141,7 +141,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "keep_alive": {
@@ -153,7 +153,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "keep_alive_timeout": {
@@ -165,7 +165,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "listen": {
@@ -177,7 +177,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "log_dir": {
@@ -189,7 +189,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "log_level": {
@@ -201,7 +201,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "max_keep_alive_requests": {
@@ -213,7 +213,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "os_users": {
@@ -227,7 +227,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "gid": {
@@ -239,7 +239,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "ldap_user": {
@@ -253,7 +253,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "name": {
@@ -265,7 +265,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "shell": {
@@ -277,7 +277,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 }
             },
@@ -291,7 +291,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "gid": {
@@ -303,7 +303,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "home": {
@@ -315,7 +315,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "ldap_user": {
@@ -327,7 +327,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "name": {
@@ -339,7 +339,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "shell": {
@@ -351,7 +351,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 }
             }
@@ -365,7 +365,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "prefork_max_clients": {
@@ -377,7 +377,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "prefork_max_requests_per_child": {
@@ -389,7 +389,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "prefork_max_spare_servers": {
@@ -401,7 +401,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "prefork_min_spare_servers": {
@@ -413,7 +413,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "prefork_server_limit": {
@@ -425,7 +425,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "prefork_start_servers": {
@@ -437,7 +437,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "proxy": {
@@ -452,7 +452,7 @@
                         "precedence_level": "node",
                         "required": "true",
                         "secret": "false",
-                        "selectable": "false",
+                        "selectable": "true",
                         "type": "string"
                     },
                     "url": {
@@ -464,7 +464,7 @@
                         "precedence_level": "node",
                         "required": "true",
                         "secret": "false",
-                        "selectable": "false",
+                        "selectable": "true",
                         "type": "string"
                     }
                 },
@@ -478,7 +478,7 @@
                         "precedence_level": "node",
                         "required": "true",
                         "secret": "false",
-                        "selectable": "false",
+                        "selectable": "true",
                         "type": "string"
                     },
                     "url": {
@@ -490,7 +490,7 @@
                         "precedence_level": "node",
                         "required": "true",
                         "secret": "false",
-                        "selectable": "false",
+                        "selectable": "true",
                         "type": "string"
                     }
                 }
@@ -505,7 +505,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "server_name": {
@@ -517,7 +517,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "server_root": {
@@ -529,7 +529,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "service_name": {
@@ -541,7 +541,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "ssl": {
@@ -554,7 +554,7 @@
                 "precedence_level": "node",
                 "required": "true",
                 "secret": "false",
-                "selectable": "false",
+                "selectable": "true",
                 "type": "string"
             },
             "install_mod_ssl": {
@@ -566,7 +566,7 @@
                 "precedence_level": "node",
                 "required": "true",
                 "secret": "false",
-                "selectable": "false",
+                "selectable": "true",
                 "type": "string"
             },
             "sslcompression": {
@@ -578,7 +578,7 @@
                 "precedence_level": "node",
                 "required": "true",
                 "secret": "false",
-                "selectable": "false",
+                "selectable": "true",
                 "type": "string"
             },
             "sslproxycacertificatefile": {
@@ -590,7 +590,7 @@
                 "precedence_level": "node",
                 "required": "true",
                 "secret": "false",
-                "selectable": "false",
+                "selectable": "true",
                 "type": "string"
             },
             "sslproxycacertificatepath": {
@@ -602,7 +602,7 @@
                 "precedence_level": "node",
                 "required": "true",
                 "secret": "false",
-                "selectable": "false",
+                "selectable": "true",
                 "type": "string"
             },
             "sslproxycarevocationcheck": {
@@ -614,7 +614,7 @@
                 "precedence_level": "node",
                 "required": "true",
                 "secret": "false",
-                "selectable": "false",
+                "selectable": "true",
                 "type": "string"
             },
             "sslproxycarevocationfile": {
@@ -626,7 +626,7 @@
                 "precedence_level": "node",
                 "required": "true",
                 "secret": "false",
-                "selectable": "false",
+                "selectable": "true",
                 "type": "string"
             }
         },
@@ -639,7 +639,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "use_canonical_name": {
@@ -651,7 +651,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "version": {
@@ -663,7 +663,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "vhosts_enabled": {
@@ -677,7 +677,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "virtualhosts": {
@@ -691,7 +691,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "custom_log_format": {
@@ -703,7 +703,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "document_root": {
@@ -715,7 +715,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "error_log": {
@@ -727,7 +727,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "global_ssl_config": {
@@ -741,7 +741,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "log_dir": {
@@ -757,7 +757,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "server_name": {
@@ -769,7 +769,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "ssl_enabled": {
@@ -783,7 +783,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "vhost_listen": {
@@ -795,7 +795,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 }
             },
@@ -809,7 +809,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "custom_log_format": {
@@ -821,7 +821,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "document_root": {
@@ -833,7 +833,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "error_log": {
@@ -845,7 +845,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "global_ssl_config": {
@@ -859,7 +859,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "log_dir": {
@@ -871,7 +871,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "server_admin": {
@@ -883,7 +883,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "server_name": {
@@ -895,7 +895,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "ssl_enabled": {
@@ -909,7 +909,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 },
                 "vhost_listen": {
@@ -921,7 +921,7 @@
                     "precedence_level": "node",
                     "required": "true",
                     "secret": "false",
-                    "selectable": "false",
+                    "selectable": "true",
                     "type": "string"
                 }
             }
@@ -935,7 +935,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "worker_max_requests_per_child": {
@@ -947,7 +947,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "worker_max_spare_servers": {
@@ -959,7 +959,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "worker_min_spare_servers": {
@@ -971,7 +971,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "worker_server_limit": {
@@ -983,7 +983,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         },
         "worker_start_servers": {
@@ -995,7 +995,7 @@
             "precedence_level": "node",
             "required": "true",
             "secret": "false",
-            "selectable": "false",
+            "selectable": "true",
             "type": "string"
         }
     }
