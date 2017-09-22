@@ -141,9 +141,14 @@ Attributes
     <td><code>apache</code></td>
   </tr>
   <tr>
-    <td><code>node['httpd']['os_users']['daemon']['ldap_user']</code></td>
+    <td><code>node['httpd']['os_users']['daemon']['home']</code></td>
     <td>HTTP Server daemon home</td>
     <td><code></code></td>
+  </tr>
+  <tr>
+    <td><code>node['httpd']['os_users']['daemon']['ldap_user']</code></td>
+    <td>HTTP Server daemon ldap_user</td>
+    <td><code>false</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['os_users']['daemon']['name']</code></td>
@@ -219,6 +224,11 @@ Attributes
     <td><code>node['httpd']['prefork_start_servers']</code></td>
     <td>HTTP Server prefork_start_servers</td>
     <td><code>8</code></td>
+  </tr>
+  <tr>
+    <td><code>node['httpd']['proxy']['ProxyPreserveHost']</code></td>
+    <td>Instruct the reverse proxy to preserve original host header from the client browser</td>
+    <td><code>On</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['proxy']['rules']['ProxyPass']['path']</code></td>
@@ -308,12 +318,12 @@ Attributes
   <tr>
     <td><code>node['httpd']['version']</code></td>
     <td>Version of HTTP Server to be installed.</td>
-    <td><code></code></td>
+    <td><code>2.4</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['vhosts_enabled']</code></td>
     <td>Allow to configure virtual hosts to run multiple websites on the same HTTP server</td>
-    <td><code>name_based</code></td>
+    <td><code>true</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['custom_log']</code></td>
@@ -337,8 +347,8 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['global_ssl_config']</code></td>
-    <td>Specify type of virtual host for HTTP communication in HTTP server</td>
-    <td><code>name_based</code></td>
+    <td>Use default global configuration for HTTPs communication in HTTP server</td>
+    <td><code>true</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['log_dir']</code></td>
@@ -357,13 +367,18 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['ssl_enabled']</code></td>
-    <td>Enable proxy usage for virtual host for HTTPS Communication in HTTP server</td>
+    <td>Enable SSL for virtual host for HTTP communication in HTTP server</td>
     <td><code>false</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['vhost_listen']</code></td>
     <td>Listening port configured in virtual host for HTTP communication in HTTP server</td>
     <td><code>80</code></td>
+  </tr>
+  <tr>
+    <td><code>node['httpd']['virtualhosts']['default_http_server']['vhost_type']</code></td>
+    <td>Allow to configure virtual hosts to run multiple websites on the same HTTP server</td>
+    <td><code>name_based</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['custom_log']</code></td>
@@ -387,13 +402,18 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['global_ssl_config']</code></td>
-    <td>Instruct the reverse proxy to preserve original host header from the client browser</td>
-    <td><code>On</code></td>
+    <td>Use default global configuration for HTTPS communication in HTTP server</td>
+    <td><code>true</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['log_dir']</code></td>
     <td>Vhost log dir</td>
     <td><code></code></td>
+  </tr>
+  <tr>
+    <td><code>node['httpd']['virtualhosts']['default_https_server']['proxy_enabled']</code></td>
+    <td>Enable proxy configuration</td>
+    <td><code>true</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['server_admin']</code></td>
@@ -407,13 +427,18 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['ssl_enabled']</code></td>
-    <td>Enable proxy configuration</td>
+    <td>Enable SSL for virtual host for HTTP communication in HTTP server</td>
     <td><code>true</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['vhost_listen']</code></td>
     <td>Listening port configured in virtual host for HTTPS communication in HTTP server</td>
     <td><code>443</code></td>
+  </tr>
+  <tr>
+    <td><code>node['httpd']['virtualhosts']['default_https_server']['vhost_type']</code></td>
+    <td>Specify type of virtual host for HTTP communication in HTTP server</td>
+    <td><code>name_based</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['worker_max_clients']</code></td>

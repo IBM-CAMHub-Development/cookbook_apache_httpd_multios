@@ -15,7 +15,7 @@
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['install_dir'] = ''
 
@@ -28,7 +28,7 @@ default['httpd']['install_dir'] = ''
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 case node['platform_family']
 when 'rhel'
@@ -47,6 +47,7 @@ end
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['log_dir'] = "/var/log/" + node['httpd']['service_name']
 
@@ -59,7 +60,7 @@ default['httpd']['log_dir'] = "/var/log/" + node['httpd']['service_name']
 # <md>          :default => 'warn',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['log_level'] = 'warn'
 
@@ -72,7 +73,7 @@ default['httpd']['log_level'] = 'warn'
 # <md>          :default => 'error_log',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['error_log'] = 'error_log'
 
@@ -85,7 +86,7 @@ default['httpd']['error_log'] = 'error_log'
 # <md>          :default => 'access_log',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['custom_log'] = 'access_log'
 
@@ -97,6 +98,7 @@ default['httpd']['custom_log'] = 'access_log'
 # <md>          :required => 'recommended',
 # <md>          :default => 'true',
 # <md>          :selectable => 'true',
+# <md>          :choice => ['true', 'false'],
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
@@ -108,10 +110,10 @@ default['httpd']['php_mod_enabled'] = 'true'
 # <md>          :description => 'Version of HTTP Server to be installed.',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => '',
+# <md>          :default => '2.4',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['version'] = '2.4'
 
@@ -124,7 +126,8 @@ default['httpd']['version'] = '2.4'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['server_root'] = node['httpd']['install_dir'] + "/etc/" + node['httpd']['service_name']
 
@@ -137,7 +140,7 @@ default['httpd']['server_root'] = node['httpd']['install_dir'] + "/etc/" + node[
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['httpd_home'] = node['httpd']['install_dir'] + "/var/www"
 
@@ -150,7 +153,7 @@ default['httpd']['httpd_home'] = node['httpd']['install_dir'] + "/var/www"
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['document_root'] = node['httpd']['install_dir'] + "/var/www/html"
 
@@ -163,7 +166,8 @@ default['httpd']['document_root'] = node['httpd']['install_dir'] + "/var/www/htm
 # <md>          :default => '0750',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['data_dir_mode'] = '0750'
 
@@ -176,7 +180,8 @@ default['httpd']['data_dir_mode'] = '0750'
 # <md>          :default => '0640',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['conf_file_mode'] = '0640'
 
@@ -202,7 +207,8 @@ default['httpd']['listen'] = '80'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['server_name'] = node['fqdn']
 
@@ -215,7 +221,7 @@ default['httpd']['server_name'] = node['fqdn']
 # <md>          :default => 'combined',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['custom_log_format'] = 'combined'
 
@@ -228,7 +234,7 @@ default['httpd']['custom_log_format'] = 'combined'
 # <md>          :default => 'webmaster@localhost',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['server_admin'] = 'webmaster@localhost'
 
@@ -241,7 +247,7 @@ default['httpd']['server_admin'] = 'webmaster@localhost'
 # <md>          :default => 'index.html info.php',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['directory_index'] = 'index.html info.php'
 
@@ -254,7 +260,8 @@ default['httpd']['directory_index'] = 'index.html info.php'
 # <md>          :default => 'off',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['use_canonical_name'] = 'Off'
 
@@ -267,7 +274,7 @@ default['httpd']['use_canonical_name'] = 'Off'
 # <md>          :default => '60',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['timeout'] = '60'
 
@@ -280,7 +287,8 @@ default['httpd']['timeout'] = '60'
 # <md>          :default => 'off',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['keep_alive'] = 'Off'
 
@@ -293,7 +301,8 @@ default['httpd']['keep_alive'] = 'Off'
 # <md>          :default => '100',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['max_keep_alive_requests'] = '100'
 
@@ -306,7 +315,8 @@ default['httpd']['max_keep_alive_requests'] = '100'
 # <md>          :default => '15',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['keep_alive_timeout'] = '15'
 
@@ -319,7 +329,8 @@ default['httpd']['keep_alive_timeout'] = '15'
 # <md>          :default => 'off',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['hostname_lookups'] = 'Off'
 
@@ -345,7 +356,8 @@ default['httpd']['enable_MMAP'] = 'off'
 # <md>          :default => 'off',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['enable_send_file'] = 'off'
 
@@ -358,7 +370,8 @@ default['httpd']['enable_send_file'] = 'off'
 # <md>          :default => '8',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['prefork_start_servers'] = '8'
 
@@ -371,7 +384,8 @@ default['httpd']['prefork_start_servers'] = '8'
 # <md>          :default => '5',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['prefork_min_spare_servers'] = '5'
 
@@ -384,7 +398,8 @@ default['httpd']['prefork_min_spare_servers'] = '5'
 # <md>          :default => '20',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['prefork_max_spare_servers'] = '20'
 
@@ -397,7 +412,8 @@ default['httpd']['prefork_max_spare_servers'] = '20'
 # <md>          :default => '256',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['prefork_server_limit'] = '256'
 
@@ -410,7 +426,8 @@ default['httpd']['prefork_server_limit'] = '256'
 # <md>          :default => '256',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['prefork_max_clients'] = '256'
 
@@ -423,7 +440,8 @@ default['httpd']['prefork_max_clients'] = '256'
 # <md>          :default => '4000',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['prefork_max_requests_per_child'] = '4000'
 
@@ -436,7 +454,8 @@ default['httpd']['prefork_max_requests_per_child'] = '4000'
 # <md>          :default => '4',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['worker_start_servers'] = '4'
 
@@ -514,7 +533,8 @@ default['httpd']['worker_max_requests_per_child'] = '0'
 # <md>          :default => 'apache',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 
 # <md>attribute 'httpd/os_users/daemon/gid',
@@ -525,7 +545,8 @@ default['httpd']['worker_max_requests_per_child'] = '0'
 # <md>          :default => 'apache',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 
 # <md>attribute 'httpd/os_users/daemon/ldap_user',
@@ -536,7 +557,7 @@ default['httpd']['worker_max_requests_per_child'] = '0'
 # <md>          :default => 'false',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false',
 # <md>          :options => ['true', 'false']
 
@@ -548,7 +569,7 @@ default['httpd']['worker_max_requests_per_child'] = '0'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 
 # <md>attribute 'httpd/os_users/daemon/comment',
@@ -559,7 +580,7 @@ default['httpd']['worker_max_requests_per_child'] = '0'
 # <md>          :default => 'HTTP Server daemon user',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 
 # <md>attribute 'httpd/os_users/daemon/shell',
@@ -570,7 +591,7 @@ default['httpd']['worker_max_requests_per_child'] = '0'
 # <md>          :default => '/sbin/nologin',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['os_users']['daemon'] = {
   'name'      => 'apache',
@@ -613,6 +634,7 @@ default['httpd']['os_users']['daemon'] = {
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 
 # <md>attribute 'httpd/os_users/web_content_owner/home',
@@ -634,7 +656,8 @@ default['httpd']['os_users']['daemon'] = {
 # <md>          :default => 'httpd daemon user',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :hidden => 'true',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 
 # <md>attribute 'httpd/os_users/web_content_owner/shell',
@@ -645,7 +668,8 @@ default['httpd']['os_users']['daemon'] = {
 # <md>          :default => '/bin/bash',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['os_users']['web_content_owner'] = {
   'name'      => 'webmaster',
@@ -690,7 +714,7 @@ default['httpd']['ssl']['install_mod_ssl'] = 'true'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['ssl']['sslcompression'] = ""
 
@@ -702,7 +726,7 @@ default['httpd']['ssl']['sslcompression'] = ""
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['ssl']['sslproxycacertificatefile'] = ""
 
@@ -714,7 +738,7 @@ default['httpd']['ssl']['sslproxycacertificatefile'] = ""
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['ssl']['sslproxycacertificatepath'] = ""
 
@@ -726,7 +750,7 @@ default['httpd']['ssl']['sslproxycacertificatepath'] = ""
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['ssl']['sslproxycarevocationcheck'] = ""
 
@@ -738,7 +762,7 @@ default['httpd']['ssl']['sslproxycarevocationcheck'] = ""
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['ssl']['sslproxycarevocationfile'] = ""
 
@@ -800,7 +824,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/document_root',
 # <md>          :displayname =>  'Default HTTP Server Virtual Host Document Root',
@@ -810,7 +834,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/log_dir',
 # <md>          :displayname =>  'Default HTTP Server Virtual Host Log Directory'',
@@ -820,7 +844,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/error_log',
 # <md>          :displayname =>  'Default HTTP Server Virtual Host Error Log Directory',
@@ -830,7 +854,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/custom_log',
 # <md>          :displayname =>  'Default HTTP Server Virtual Host Custom Log Directory',
@@ -840,7 +864,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/custom_log_format',
 # <md>          :displayname =>  'Default HTTP Server Virtual Host Custom Log Format',
@@ -850,7 +874,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :default => 'combined',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/server_admin',
 # <md>          :displayname =>  'Default HTTP Server Virtual Host Server Admin',
@@ -860,7 +884,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :default => '',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'none',
+# <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/ssl_enabled',
 # <md>          :displayname =>  'Enable SSL for Virtual Host for HTTPs Communication',
@@ -950,7 +974,7 @@ default['httpd']['virtualhosts']= {
   # <md>          :default => '',
   # <md>          :selectable => 'true',
   # <md>          :precedence_level => 'node',
-  # <md>          :parm_type => 'none',
+  # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/document_root',
   # <md>          :displayname =>  'DefaultHTTPSVhostDocumentRoot',
@@ -960,7 +984,7 @@ default['httpd']['virtualhosts']= {
   # <md>          :default => '',
   # <md>          :selectable => 'true',
   # <md>          :precedence_level => 'node',
-  # <md>          :parm_type => 'none',
+  # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/log_dir',
   # <md>          :displayname =>  'DefaultHTTPSVhostLogDir',
@@ -970,7 +994,7 @@ default['httpd']['virtualhosts']= {
   # <md>          :default => '',
   # <md>          :selectable => 'true',
   # <md>          :precedence_level => 'node',
-  # <md>          :parm_type => 'none',
+  # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/error_log',
   # <md>          :displayname =>  'DefaultHTTPSVhostErrorLogDir',
@@ -980,7 +1004,7 @@ default['httpd']['virtualhosts']= {
   # <md>          :default => '',
   # <md>          :selectable => 'true',
   # <md>          :precedence_level => 'node',
-  # <md>          :parm_type => 'none',
+  # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/custom_log',
   # <md>          :displayname =>  'DefaultHTTPSVhostCustomLogDir',
@@ -990,7 +1014,7 @@ default['httpd']['virtualhosts']= {
   # <md>          :default => '',
   # <md>          :selectable => 'true',
   # <md>          :precedence_level => 'node',
-  # <md>          :parm_type => 'none',
+  # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/custom_log_format',
   # <md>          :displayname =>  'DefaultHTTPSVhostCustomLogFormat',
@@ -1000,7 +1024,7 @@ default['httpd']['virtualhosts']= {
   # <md>          :default => 'combined',
   # <md>          :selectable => 'true',
   # <md>          :precedence_level => 'node',
-  # <md>          :parm_type => 'none',
+  # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/server_admin',
   # <md>          :displayname =>  'DefaultHTTPSVhostServerAdmin',
@@ -1010,7 +1034,7 @@ default['httpd']['virtualhosts']= {
   # <md>          :default => '',
   # <md>          :selectable => 'true',
   # <md>          :precedence_level => 'node',
-  # <md>          :parm_type => 'none',
+  # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/ssl_enabled',
   # <md>          :displayname =>  'Enable SSL for Virtual Host for HTTP Communication',
