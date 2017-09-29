@@ -762,8 +762,8 @@
                 },
                 "global_ssl_config": {
                     "default": "true",
-                    "description": "Use default global configuration for HTTPs communication in HTTP server",
-                    "displayname": "Use Default Global Configuration for HTTPs Communication",
+                    "description": "Use default global configuration for HTTPS communication in HTTP server",
+                    "displayname": "Use Default Global Configuration for HTTPS Communication",
                     "hidden": "false",
                     "options": "true",
                     "parm_type": "node",
@@ -803,8 +803,8 @@
                 },
                 "ssl_enabled": {
                     "default": "false",
-                    "description": "Enable SSL for virtual host for HTTP communication in HTTP server",
-                    "displayname": "Enable SSL for Virtual Host for HTTPs Communication",
+                    "description": "Enable SSL for virtual host for HTTPS communication in HTTP server",
+                    "displayname": "Enable SSL for Virtual Host for HTTPS Communication",
                     "hidden": "false",
                     "options": "true",
                     "parm_type": "node",

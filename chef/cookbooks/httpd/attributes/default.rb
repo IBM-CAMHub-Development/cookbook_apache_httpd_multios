@@ -887,8 +887,8 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/ssl_enabled',
-# <md>          :displayname =>  'Enable SSL for Virtual Host for HTTPs Communication',
-# <md>          :description => 'Enable SSL for virtual host for HTTP communication in HTTP server',
+# <md>          :displayname =>  'Enable SSL for Virtual Host for HTTPS Communication',
+# <md>          :description => 'Enable SSL for virtual host for HTTPS communication in HTTP server',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'false',
@@ -908,8 +908,8 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/global_ssl_config',
-# <md>          :displayname =>  'Use Default Global Configuration for HTTPs Communication',
-# <md>          :description => 'Use default global configuration for HTTPs communication in HTTP server',
+# <md>          :displayname =>  'Use Default Global Configuration for HTTPS Communication',
+# <md>          :description => 'Use default global configuration for HTTPS communication in HTTP server',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'true',

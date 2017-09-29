@@ -347,7 +347,7 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['global_ssl_config']</code></td>
-    <td>Use default global configuration for HTTPs communication in HTTP server</td>
+    <td>Use default global configuration for HTTPS communication in HTTP server</td>
     <td><code>true</code></td>
   </tr>
   <tr>
@@ -367,7 +367,7 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['ssl_enabled']</code></td>
-    <td>Enable SSL for virtual host for HTTP communication in HTTP server</td>
+    <td>Enable SSL for virtual host for HTTPS communication in HTTP server</td>
     <td><code>false</code></td>
   </tr>
   <tr>

@@ -83,9 +83,21 @@ when 'debian'
   # <> The name of the log file for gathered evidence
   force_default['httpd']['evidence_log'] = "httpd-#{node['hostname']}-#{Time.now.strftime('%Y-%m-%d%H-%M-%S')}.log"
   # <> PHP packages ubuntu
-  force_default['httpd']['php_packages'] = ['php', 'libapache2-mod-php', 'php-mcrypt']
+  if node['platform'] == 'ubuntu'
+    if node['platform_version'].split('.').first.to_i == 14
+      force_default['httpd']['php_packages'] = ['php5', 'libapache2-mod-php5']      
+    elsif node['platform_version'].split('.').first.to_i == 16
+      force_default['httpd']['php_packages'] = ['php', 'libapache2-mod-php', 'php-mcrypt']
+    end
+  end
   # <> Prereqisite packages
-  force_default['httpd']['prereq_packages'] = ['python3-openssl', 'openssl', 'net-tools']
+  if node['platform'] == 'ubuntu'
+    if node['platform_version'].split('.').first.to_i == 14 
+      force_default['httpd']['prereq_packages'] = ['python3-openssl', 'openssl', 'net-tools']
+    elsif node['platform_version'].split('.').first.to_i == 16
+      force_default['httpd']['prereq_packages'] = ['python3-cffi-backend-api-9729', 'python3-idna', 'python3-pyasn1', 'python3-cryptography', 'python3-openssl', 'openssl', 'net-tools'] 
+    end
+  end
   # <> HTTP packages
   force_default['httpd']['server_packages'] = ['apache2', 'apache2-utils']
   # <> HTTP service name

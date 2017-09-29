@@ -23,7 +23,7 @@ Apache HTTP Server 2.4
 
 EOH
 
-version '1.1.45'
+version '1.1.47'
 
 attribute 'httpd/conf_file_mode',
           :default => '0640',
@@ -663,8 +663,8 @@ attribute 'httpd/virtualhosts/default_http_server/error_log',
           :type => 'string'
 attribute 'httpd/virtualhosts/default_http_server/global_ssl_config',
           :default => 'true',
-          :description => 'Use default global configuration for HTTPs communication in HTTP server',
-          :displayname => 'Use Default Global Configuration for HTTPs Communication',
+          :description => 'Use default global configuration for HTTPS communication in HTTP server',
+          :displayname => 'Use Default Global Configuration for HTTPS Communication',
           :options => 'true',
           :parm_type => 'node',
           :precedence_level => 'node',
@@ -696,8 +696,8 @@ attribute 'httpd/virtualhosts/default_http_server/server_name',
           :type => 'string'
 attribute 'httpd/virtualhosts/default_http_server/ssl_enabled',
           :default => 'false',
-          :description => 'Enable SSL for virtual host for HTTP communication in HTTP server',
-          :displayname => 'Enable SSL for Virtual Host for HTTPs Communication',
+          :description => 'Enable SSL for virtual host for HTTPS communication in HTTP server',
+          :displayname => 'Enable SSL for Virtual Host for HTTPS Communication',
           :options => 'true',
           :parm_type => 'node',
           :precedence_level => 'node',

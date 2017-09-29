@@ -69,6 +69,14 @@ apt_update 'update' do
   only_if { node['platform_family'] == 'debian' }
 end
 
+#Clear outstanding package dependencies for DEBIAN only
+execute 'run-apt-install' do
+  command 'apt-get -y -f install'
+  only_if { node['platform_family'] == 'debian' }
+end
+
+
+
 # Install the prereq packages
 node['httpd']['prereq_packages'].each do |p|
   package p do
