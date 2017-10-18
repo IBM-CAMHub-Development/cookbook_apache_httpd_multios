@@ -23,7 +23,7 @@ Apache HTTP Server 2.4
 
 EOH
 
-version '1.1.48'
+version '1.0.0'
 
 attribute 'httpd/conf_file_mode',
           :default => '0640',
