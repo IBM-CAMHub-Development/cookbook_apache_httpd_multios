@@ -601,10 +601,11 @@
                 "type": "string"
             },
             "sslcompression": {
-                "default": "",
+                "default": "Off",
                 "description": "Enable SSL compression within HTTP Server Configuration",
                 "displayname": "Enable SSL Compression",
                 "hidden": "false",
+                "options": "On",
                 "parm_type": "node",
                 "precedence_level": "node",
                 "required": "true",
@@ -613,7 +614,7 @@
                 "type": "string"
             },
             "sslproxycacertificatefile": {
-                "default": "",
+                "default": "PleaseProvide",
                 "description": "SSL proxy Certificate file name",
                 "displayname": "SSL proxy Certificate file name",
                 "hidden": "false",
@@ -625,7 +626,7 @@
                 "type": "string"
             },
             "sslproxycacertificatepath": {
-                "default": "",
+                "default": "PleaseProvide",
                 "description": "SSL proxy Certificate file path",
                 "displayname": "SSL proxy Certificate file path",
                 "hidden": "false",
@@ -637,7 +638,7 @@
                 "type": "string"
             },
             "sslproxycarevocationcheck": {
-                "default": "",
+                "default": "PleaseProvide",
                 "description": "SSL proxy CA revocation check",
                 "displayname": "SSL proxy CA revocation check",
                 "hidden": "false",
@@ -649,7 +650,7 @@
                 "type": "string"
             },
             "sslproxycarevocationfile": {
-                "default": "",
+                "default": "PleaseProvide",
                 "description": "SSL proxy CA revocation file",
                 "displayname": "SSL proxy CA revocation file",
                 "hidden": "false",

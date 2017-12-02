@@ -283,27 +283,27 @@ Attributes
   <tr>
     <td><code>node['httpd']['ssl']['sslcompression']</code></td>
     <td>Enable SSL compression within HTTP Server Configuration</td>
-    <td><code></code></td>
+    <td><code>Off</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['ssl']['sslproxycacertificatefile']</code></td>
     <td>SSL proxy Certificate file name</td>
-    <td><code></code></td>
+    <td><code>PleaseProvide</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['ssl']['sslproxycacertificatepath']</code></td>
     <td>SSL proxy Certificate file path</td>
-    <td><code></code></td>
+    <td><code>PleaseProvide</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['ssl']['sslproxycarevocationcheck']</code></td>
     <td>SSL proxy CA revocation check</td>
-    <td><code></code></td>
+    <td><code>PleaseProvide</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['ssl']['sslproxycarevocationfile']</code></td>
     <td>SSL proxy CA revocation file</td>
-    <td><code></code></td>
+    <td><code>PleaseProvide</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['timeout']</code></td>

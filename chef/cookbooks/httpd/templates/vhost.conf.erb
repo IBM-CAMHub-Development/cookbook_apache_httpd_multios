@@ -23,23 +23,23 @@ NameVirtualHost *:<%= @vhost_port %>
 
     SSLCertificateKeyFile "<%= @ssl.certificate_path %>/<%= @ssl.certificate_name %>.key"
 
-    <% if @ssl.sslcompression != ""  %>
+    <% if @ssl.sslcompression != "Off"  %>
     SSLCompression  <%= @ssl.sslcompression  %>
     <% end %>
 
-    <% if @ssl.sslproxycacertificatefile != ""  %>
+    <% if @ssl.sslproxycacertificatefile != "PleaseProvide"  %>
     SSLProxyCACertificateFile  <%= @ssl.sslproxycacertificatefile  %>
     <% end %>
 
-    <% if @ssl.sslproxycacertificatepath != ""  %>
+    <% if @ssl.sslproxycacertificatepath != "PleaseProvide"  %>
     SSLProxyCACertificatePath  <%= @ssl.sslproxycacertificatepath  %>
     <% end %>
 
-    <% if @ssl.sslproxycarevocationcheck != ""  %>
+    <% if @ssl.sslproxycarevocationcheck != "PleaseProvide"  %>
     SSLProxyCARevocationCheck  <%= @ssl.sslproxycarevocationcheck  %>
     <% end %>
 
-    <% if @ssl.sslproxycarevocationfile != "" %>
+    <% if @ssl.sslproxycarevocationfile != "PleaseProvide" %>
     SSLProxyCARevocationFile  <%= @ssl.sslproxycarevocationfile  %>
     <% end %>
 

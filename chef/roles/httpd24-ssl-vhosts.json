@@ -29,11 +29,11 @@
         "log_level" : "warn",
         "transfer_log" : "ssl_transfer_log",
         "certificate_name" : "global_cert",
-        "sslcompression" : "",
-        "sslproxycacertificatefile" : "",
-        "sslproxycacertificatepath" : "/etc/httpd/ssl",
-        "sslproxycarevocationcheck" : "",
-        "sslproxycarevocationfile" : ""
+        "sslcompression" : "Off",
+        "sslproxycacertificatefile" : "PleaseProvide",
+        "sslproxycacertificatepath" : "PleaseProvide",
+        "sslproxycarevocationcheck" : "PleaseProvide",
+        "sslproxycarevocationfile" : "PleaseProvide"
       },
 
       "proxy": {

@@ -23,7 +23,7 @@ Apache HTTP Server 2.4
 
 EOH
 
-version '1.0.1'
+version '1.0.2'
 
 attribute 'httpd/conf_file_mode',
           :default => '0640',
@@ -530,9 +530,10 @@ attribute 'httpd/ssl/install_mod_ssl',
           :selectable => 'true',
           :type => 'string'
 attribute 'httpd/ssl/sslcompression',
-          :default => '',
+          :default => 'Off',
           :description => 'Enable SSL compression within HTTP Server Configuration',
           :displayname => 'Enable SSL Compression',
+          :options => 'On',
           :parm_type => 'node',
           :precedence_level => 'node',
           :required => 'recommended',
@@ -540,7 +541,7 @@ attribute 'httpd/ssl/sslcompression',
           :selectable => 'true',
           :type => 'string'
 attribute 'httpd/ssl/sslproxycacertificatefile',
-          :default => '',
+          :default => 'PleaseProvide',
           :description => 'SSL proxy Certificate file name',
           :displayname => 'SSL proxy Certificate file name',
           :parm_type => 'node',
@@ -550,7 +551,7 @@ attribute 'httpd/ssl/sslproxycacertificatefile',
           :selectable => 'true',
           :type => 'string'
 attribute 'httpd/ssl/sslproxycacertificatepath',
-          :default => '',
+          :default => 'PleaseProvide',
           :description => 'SSL proxy Certificate file path',
           :displayname => 'SSL proxy Certificate file path',
           :parm_type => 'node',
@@ -560,7 +561,7 @@ attribute 'httpd/ssl/sslproxycacertificatepath',
           :selectable => 'true',
           :type => 'string'
 attribute 'httpd/ssl/sslproxycarevocationcheck',
-          :default => '',
+          :default => 'PleaseProvide',
           :description => 'SSL proxy CA revocation check',
           :displayname => 'SSL proxy CA revocation check',
           :parm_type => 'node',
@@ -570,7 +571,7 @@ attribute 'httpd/ssl/sslproxycarevocationcheck',
           :selectable => 'true',
           :type => 'string'
 attribute 'httpd/ssl/sslproxycarevocationfile',
-          :default => '',
+          :default => 'PleaseProvide',
           :description => 'SSL proxy CA revocation file',
           :displayname => 'SSL proxy CA revocation file',
           :parm_type => 'node',

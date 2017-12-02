@@ -711,60 +711,61 @@ default['httpd']['ssl']['install_mod_ssl'] = 'true'
 # <md>          :description => 'Enable SSL compression within HTTP Server Configuration',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => '',
+# <md>          :default => 'Off',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
-# <md>          :secret => 'false'
-default['httpd']['ssl']['sslcompression'] = ""
+# <md>          :secret => 'false',
+# <md>          :options => ['On', 'Off']
+default['httpd']['ssl']['sslcompression'] = "Off"
 
 # <md>attribute 'httpd/ssl/sslproxycacertificatefile',
 # <md>          :displayname =>  'SSL proxy Certificate file name',
 # <md>          :description => 'SSL proxy Certificate file name',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => '',
+# <md>          :default => 'PleaseProvide',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
-default['httpd']['ssl']['sslproxycacertificatefile'] = ""
+default['httpd']['ssl']['sslproxycacertificatefile'] = "PleaseProvide"
 
 # <md>attribute 'httpd/ssl/sslproxycacertificatepath',
 # <md>          :displayname =>  'SSL proxy Certificate file path',
 # <md>          :description => 'SSL proxy Certificate file path',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => '',
+# <md>          :default => 'PleaseProvide',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
-default['httpd']['ssl']['sslproxycacertificatepath'] = ""
+default['httpd']['ssl']['sslproxycacertificatepath'] = "PleaseProvide"
 
 # <md>attribute 'httpd/ssl/sslproxycarevocationcheck',
 # <md>          :displayname =>  'SSL proxy CA revocation check',
 # <md>          :description => 'SSL proxy CA revocation check',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => '',
+# <md>          :default => 'PleaseProvide',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
-default['httpd']['ssl']['sslproxycarevocationcheck'] = ""
+default['httpd']['ssl']['sslproxycarevocationcheck'] = "PleaseProvide"
 
 # <md>attribute 'httpd/ssl/sslproxycarevocationfile',
 # <md>          :displayname =>  'SSL proxy CA revocation file',
 # <md>          :description => 'SSL proxy CA revocation file',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => '',
+# <md>          :default => 'PleaseProvide',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
-default['httpd']['ssl']['sslproxycarevocationfile'] = ""
+default['httpd']['ssl']['sslproxycarevocationfile'] = "PleaseProvide"
 
 # <md>attribute 'httpd/ssl/https_port',
 # <md>          :displayname =>  'HTTP Server SSL Port',
