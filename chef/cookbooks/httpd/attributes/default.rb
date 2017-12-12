@@ -257,7 +257,8 @@ default['httpd']['directory_index'] = 'index.html info.php'
 # <md>          :description => 'Should the HTTP Server use the canonical hostname',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => 'off',
+# <md>          :default => 'Off',
+# <md>          :choice => ['On', 'Off'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
@@ -271,10 +272,11 @@ default['httpd']['use_canonical_name'] = 'Off'
 # <md>          :description => 'httpd timeout',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => '60',
+# <md>          :default => 'off',
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
+# <md>          :hidden => 'true',
 # <md>          :secret => 'false'
 default['httpd']['timeout'] = '60'
 
@@ -284,7 +286,8 @@ default['httpd']['timeout'] = '60'
 # <md>          :description => 'HTTP Server TCP Keep alive',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => 'off',
+# <md>          :default => 'Off',
+# <md>          :choice => ['On', 'Off'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
@@ -326,12 +329,14 @@ default['httpd']['keep_alive_timeout'] = '15'
 # <md>          :description => 'HTTP Server hostname_lookups',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
-# <md>          :default => 'off',
+# <md>          :default => 'Off',
+# <md>          :choice => ['On', 'Off'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :hidden => 'true',
 # <md>          :secret => 'false'
+
 default['httpd']['hostname_lookups'] = 'Off'
 
 # <> EnableMMAP
@@ -341,6 +346,7 @@ default['httpd']['hostname_lookups'] = 'Off'
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'off',
+# <md>          :choice => ['on', 'off'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
@@ -354,6 +360,7 @@ default['httpd']['enable_MMAP'] = 'off'
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'off',
+# <md>          :choice => ['on', 'off'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
@@ -556,10 +563,10 @@ default['httpd']['worker_max_requests_per_child'] = '0'
 # <md>          :required => 'recommended',
 # <md>          :default => 'false',
 # <md>          :selectable => 'true',
+# <md>          :choice => ['true', 'false'],
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
-# <md>          :secret => 'false',
-# <md>          :options => ['true', 'false']
+# <md>          :secret => 'false'
 
 # <md>attribute 'httpd/os_users/daemon/home',
 # <md>          :displayname =>  'HTTP Server daemon home',
@@ -632,6 +639,7 @@ default['httpd']['os_users']['daemon'] = {
 # <md>          :required => 'recommended',
 # <md>          :default => 'false',
 # <md>          :selectable => 'true',
+# <md>          :choice => ['true', 'false'],
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :hidden => 'true',
@@ -700,10 +708,12 @@ default['httpd']['ssl']['certificate_path'] = "#{node['httpd']['server_root']}/s
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'true',
+# <md>          :choice => ['true', 'false'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
+
 default['httpd']['ssl']['install_mod_ssl'] = 'true'
 
 # <md>attribute 'httpd/ssl/sslcompression',
@@ -712,11 +722,11 @@ default['httpd']['ssl']['install_mod_ssl'] = 'true'
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'Off',
+# <md>          :choice => ['On', 'Off'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
-# <md>          :secret => 'false',
-# <md>          :options => ['On', 'Off']
+# <md>          :secret => 'false'
 default['httpd']['ssl']['sslcompression'] = "Off"
 
 # <md>attribute 'httpd/ssl/sslproxycacertificatefile',
@@ -790,15 +800,15 @@ default['httpd']['ssl']['https_port'] = '443'
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'true',
+# <md>          :choice => ['true', 'false'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
-# <md>          :secret => 'false',
-# <md>          :options => ['true', 'false']
+# <md>          :secret => 'false'
 default['httpd']['vhosts_enabled'] = 'true'
 
 # <md>attribute 'httpd/virtualhosts/default_http_server/vhost_type',
-# <md>          :displayname =>  'Enable Virtual Host Configuration',
+# <md>          :displayname =>  'HTTP - Virtual Host type, name-based HTTP virtual host',
 # <md>          :description => 'Allow to configure virtual hosts to run multiple websites on the same HTTP server',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -808,7 +818,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/vhost_listen',
-# <md>          :displayname =>  'Listen Port in Virtual Host for HTTP communication',
+# <md>          :displayname =>  'HTTP - Listen Port in Virtual Host for HTTP communication',
 # <md>          :description => 'Listening port configured in virtual host for HTTP communication in HTTP server',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -818,7 +828,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/server_name',
-# <md>          :displayname =>  'Virtual Host server name for directing requests',
+# <md>          :displayname =>  'HTTP - Virtual Host server name for directing requests',
 # <md>          :description => 'Vhost server name for directing requests',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -828,7 +838,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/document_root',
-# <md>          :displayname =>  'Default HTTP Server Virtual Host Document Root',
+# <md>          :displayname =>  'HTTP - Default HTTP Server Virtual Host Document Root',
 # <md>          :description => 'Location of the Default Docuement Root',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -838,7 +848,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/log_dir',
-# <md>          :displayname =>  'Default HTTP Server Virtual Host Log Directory'',
+# <md>          :displayname =>  'HTTP - Default HTTP Server Virtual Host Log Directory'',
 # <md>          :description => 'Location of the HTTP Server Log Directory',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -848,7 +858,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/error_log',
-# <md>          :displayname =>  'Default HTTP Server Virtual Host Error Log Directory',
+# <md>          :displayname =>  'HTTP - Default HTTP Server Virtual Host Error Log Directory',
 # <md>          :description => 'Location of the HTTP Server Error Log',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -858,7 +868,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/custom_log',
-# <md>          :displayname =>  'Default HTTP Server Virtual Host Custom Log Directory',
+# <md>          :displayname =>  'HTTP - Default HTTP Server Virtual Host Custom Log Directory',
 # <md>          :description => 'Location of the HTTP Server Custom Log',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -868,7 +878,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/custom_log_format',
-# <md>          :displayname =>  'Default HTTP Server Virtual Host Custom Log Format',
+# <md>          :displayname =>  'HTTP - Default HTTP Server Virtual Host Custom Log Format',
 # <md>          :description => 'Log Format of the Custom Log',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -878,7 +888,7 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/server_admin',
-# <md>          :displayname =>  'Default HTTP Server Virtual Host Server Admin',
+# <md>          :displayname =>  'HTTP - Default HTTP Server Virtual Host Server Admin',
 # <md>          :description => 'Email address of the Server Admin',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -888,37 +898,38 @@ default['httpd']['vhosts_enabled'] = 'true'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/ssl_enabled',
-# <md>          :displayname =>  'Enable SSL for Virtual Host for HTTPS Communication',
+# <md>          :displayname =>  'HTTP - Enable SSL for Virtual Host for HTTPS Communication',
 # <md>          :description => 'Enable SSL for virtual host for HTTPS communication in HTTP server',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'false',
-# <md>          :selectable => 'true',
-# <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'node',
-# <md>          :secret => 'false',
-# <md>          :options => ['true', 'false']
-# <md>attribute 'httpd/virtualhosts/default_https_server/proxy_enabled',
-# <md>          :displayname =>  'Enable Proxy for Virtual Host for HTTPS Communication',
-# <md>          :description => 'Enable proxy usage for virtual host for HTTPS Communication in HTTP server',
-# <md>          :type => 'string',
-# <md>          :required => 'recommended',
-# <md>          :default => 'false',
+# <md>          :choice => ['true', 'false'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
+# <md>attribute 'httpd/virtualhosts/default_http_server/proxy_enabled',
+# <md>          :displayname =>  'HTTP - Enable Proxy for Virtual Host for HTTP Communication',
+# <md>          :description => 'Enable proxy usage for virtual host for HTTP Communication in HTTP server',
+# <md>          :type => 'string',
+# <md>          :required => 'recommended',
+# <md>          :default => 'false',
+# <md>          :selectable => 'true',
+# <md>          :choice => ['true', 'false'],
+# <md>          :precedence_level => 'node',
+# <md>          :parm_type => 'node',
+# <md>          :secret => 'false'
 # <md>attribute 'httpd/virtualhosts/default_http_server/global_ssl_config',
-# <md>          :displayname =>  'Use Default Global Configuration for HTTPS Communication',
-# <md>          :description => 'Use default global configuration for HTTPS communication in HTTP server',
+# <md>          :displayname =>  'HTTP - Use Default Global Configuration for HTTP Communication',
+# <md>          :description => 'Use default global configuration for HTTP communication in HTTP server',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'true',
 # <md>          :selectable => 'true',
+# <md>          :choice => ['true', 'false'],
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
-# <md>          :secret => 'false',
-# <md>          :options => ['true', 'false']
+# <md>          :secret => 'false'
 default['httpd']['virtualhosts']= {
   'default_http_server' => {
     # <> Vhost type - name_based or ip_based
@@ -948,8 +959,8 @@ default['httpd']['virtualhosts']= {
   },
 
   # <md>attribute 'httpd/virtualhosts/default_https_server/vhost_type',
-  # <md>          :displayname =>  'Type of Virtual Host for HTTP communication',
-  # <md>          :description => 'Specify type of virtual host for HTTP communication in HTTP server',
+  # <md>          :displayname =>  'HTTPS - Virtual Host type, name-based HTTPS virtual host',
+  # <md>          :description => 'Specify type of virtual host for HTTPS communication in HTTPS server',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => 'name_based',
@@ -958,7 +969,7 @@ default['httpd']['virtualhosts']= {
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/vhost_listen',
-  # <md>          :displayname =>  'Listen Port in Virtual Host for HTTPS communication',
+  # <md>          :displayname =>  'HTTPS - Listen Port in Virtual Host for HTTPS communication',
   # <md>          :description => 'Listening port configured in virtual host for HTTPS communication in HTTP server',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
@@ -968,8 +979,8 @@ default['httpd']['virtualhosts']= {
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/server_name',
-  # <md>          :displayname =>  'DefaultHTTPSVhostServerName',
-  # <md>          :description => 'Vhost server name for directing requests',
+  # <md>          :displayname =>  'HTTPS -  virtual host servername',
+  # <md>          :description => 'HTTPS Virtual host server name for directing requests',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => '',
@@ -978,8 +989,8 @@ default['httpd']['virtualhosts']= {
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/document_root',
-  # <md>          :displayname =>  'DefaultHTTPSVhostDocumentRoot',
-  # <md>          :description => 'Vhost document root',
+  # <md>          :displayname =>  'HTTPS - virtual host DocumentRoot',
+  # <md>          :description => 'HTTPS virtual host document root',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => '',
@@ -988,8 +999,8 @@ default['httpd']['virtualhosts']= {
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/log_dir',
-  # <md>          :displayname =>  'DefaultHTTPSVhostLogDir',
-  # <md>          :description => 'Vhost log dir',
+  # <md>          :displayname =>  'HTTPS -  virtual host LogDir',
+  # <md>          :description => 'HTTPS virtual host log dir',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => '',
@@ -998,8 +1009,8 @@ default['httpd']['virtualhosts']= {
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/error_log',
-  # <md>          :displayname =>  'DefaultHTTPSVhostErrorLogDir',
-  # <md>          :description => 'Vhost error log dir',
+  # <md>          :displayname =>  'HTTPS -  virtual host ErrorLogDir',
+  # <md>          :description => 'HTTPS Virtual host error log dir',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => '',
@@ -1008,8 +1019,8 @@ default['httpd']['virtualhosts']= {
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/custom_log',
-  # <md>          :displayname =>  'DefaultHTTPSVhostCustomLogDir',
-  # <md>          :description => 'Vhost custom log dir',
+  # <md>          :displayname =>  'HTTPS -  virtual host CustomLogDir',
+  # <md>          :description => 'HTTPS Virtual host custom log dir',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => '',
@@ -1018,8 +1029,8 @@ default['httpd']['virtualhosts']= {
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/custom_log_format',
-  # <md>          :displayname =>  'DefaultHTTPSVhostCustomLogFormat',
-  # <md>          :description => 'Vhost custom log format',
+  # <md>          :displayname =>  'HTTPS -  virtual host CustomLogFormat',
+  # <md>          :description => 'HTTPS Virtual host custom log format',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => 'combined',
@@ -1028,8 +1039,8 @@ default['httpd']['virtualhosts']= {
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/server_admin',
-  # <md>          :displayname =>  'DefaultHTTPSVhostServerAdmin',
-  # <md>          :description => 'Vhost Server admin',
+  # <md>          :displayname =>  'HTTPS -  virtual host ServerAdmin',
+  # <md>          :description => 'HTTPS Virtual host server admin',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => '',
@@ -1038,37 +1049,39 @@ default['httpd']['virtualhosts']= {
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/ssl_enabled',
-  # <md>          :displayname =>  'Enable SSL for Virtual Host for HTTP Communication',
-  # <md>          :description => 'Enable SSL for virtual host for HTTP communication in HTTP server',
+  # <md>          :displayname =>  'HTTPS - Enable SSL for Virtual Host for HTTP Communication',
+  # <md>          :description => 'HTTPS - Enable SSL for virtual host for HTTP communication in HTTP server',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => 'true',
   # <md>          :selectable => 'true',
+  # <md>          :choice => ['true', 'false'],
   # <md>          :precedence_level => 'node',
   # <md>          :parm_type => 'node',
-  # <md>          :secret => 'false',
-  # <md>          :options => ['true', 'false']
+  # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/proxy_enabled',
-  # <md>          :displayname =>  'DefaultHTTPSGlobalSSLConfig',
+  # <md>          :displayname =>  'HTTPS -  virtual host enable proxy configuration',
   # <md>          :description => 'Enable proxy configuration',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => 'true',
   # <md>          :selectable => 'true',
+  # <md>          :choice => ['true', 'false']
   # <md>          :precedence_level => 'node',
   # <md>          :parm_type => 'node',
   # <md>          :secret => 'false'
   # <md>attribute 'httpd/virtualhosts/default_https_server/global_ssl_config',
-  # <md>          :displayname =>  'Use Default Global Configuration for HTTPS Communication',
+  # <md>          :displayname =>  'HTTPS - Use Default Global Configuration for HTTPS Communication',
   # <md>          :description => 'Use default global configuration for HTTPS communication in HTTP server',
   # <md>          :type => 'string',
   # <md>          :required => 'recommended',
   # <md>          :default => 'true',
+  # <md>          :choice => ['true', 'false'],
   # <md>          :selectable => 'true',
   # <md>          :precedence_level => 'node',
   # <md>          :parm_type => 'node',
-  # <md>          :secret => 'false',
-  # <md>          :options => ['true', 'false']
+  # <md>          :secret => 'false'
+
   'default_https_server' => {
     # <> Vhost type - name_based or ip_based
     'vhost_type' => 'name_based',
@@ -1105,6 +1118,7 @@ default['httpd']['virtualhosts']= {
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'On',
+# <md>          :choice => ['On', 'Off'],
 # <md>          :selectable => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
@@ -1150,7 +1164,7 @@ default['httpd']['virtualhosts']= {
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'false'
 default['httpd']['proxy'] = {
-  #'ProxyPreserveHost' => 'On',
+  'ProxyPreserveHost' => 'On',
   'rules' => { 'ProxyPass' => [],
                'ProxyPassReverse' => []
   }

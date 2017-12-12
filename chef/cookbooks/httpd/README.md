@@ -88,7 +88,7 @@ Attributes
   <tr>
     <td><code>node['httpd']['hostname_lookups']</code></td>
     <td>HTTP Server hostname_lookups</td>
-    <td><code>off</code></td>
+    <td><code>Off</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['httpd_home']</code></td>
@@ -103,7 +103,7 @@ Attributes
   <tr>
     <td><code>node['httpd']['keep_alive']</code></td>
     <td>HTTP Server TCP Keep alive</td>
-    <td><code>off</code></td>
+    <td><code>Off</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['keep_alive_timeout']</code></td>
@@ -308,12 +308,12 @@ Attributes
   <tr>
     <td><code>node['httpd']['timeout']</code></td>
     <td>httpd timeout</td>
-    <td><code>60</code></td>
+    <td><code>off</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['use_canonical_name']</code></td>
     <td>Should the HTTP Server use the canonical hostname</td>
-    <td><code>off</code></td>
+    <td><code>Off</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['version']</code></td>
@@ -347,13 +347,18 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['global_ssl_config']</code></td>
-    <td>Use default global configuration for HTTPS communication in HTTP server</td>
+    <td>Use default global configuration for HTTP communication in HTTP server</td>
     <td><code>true</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['log_dir']</code></td>
     <td></td>
     <td><code></code></td>
+  </tr>
+  <tr>
+    <td><code>node['httpd']['virtualhosts']['default_http_server']['proxy_enabled']</code></td>
+    <td>Enable proxy usage for virtual host for HTTP Communication in HTTP server</td>
+    <td><code>false</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_http_server']['server_admin']</code></td>
@@ -382,22 +387,22 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['custom_log']</code></td>
-    <td>Vhost custom log dir</td>
+    <td>HTTPS Virtual host custom log dir</td>
     <td><code></code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['custom_log_format']</code></td>
-    <td>Vhost custom log format</td>
+    <td>HTTPS Virtual host custom log format</td>
     <td><code>combined</code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['document_root']</code></td>
-    <td>Vhost document root</td>
+    <td>HTTPS virtual host document root</td>
     <td><code></code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['error_log']</code></td>
-    <td>Vhost error log dir</td>
+    <td>HTTPS Virtual host error log dir</td>
     <td><code></code></td>
   </tr>
   <tr>
@@ -407,7 +412,7 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['log_dir']</code></td>
-    <td>Vhost log dir</td>
+    <td>HTTPS virtual host log dir</td>
     <td><code></code></td>
   </tr>
   <tr>
@@ -417,17 +422,17 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['server_admin']</code></td>
-    <td>Vhost Server admin</td>
+    <td>HTTPS Virtual host server admin</td>
     <td><code></code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['server_name']</code></td>
-    <td>Vhost server name for directing requests</td>
+    <td>HTTPS Virtual host server name for directing requests</td>
     <td><code></code></td>
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['ssl_enabled']</code></td>
-    <td>Enable SSL for virtual host for HTTP communication in HTTP server</td>
+    <td>HTTPS - Enable SSL for virtual host for HTTP communication in HTTP server</td>
     <td><code>true</code></td>
   </tr>
   <tr>
@@ -437,7 +442,7 @@ Attributes
   </tr>
   <tr>
     <td><code>node['httpd']['virtualhosts']['default_https_server']['vhost_type']</code></td>
-    <td>Specify type of virtual host for HTTP communication in HTTP server</td>
+    <td>Specify type of virtual host for HTTPS communication in HTTPS server</td>
     <td><code>name_based</code></td>
   </tr>
   <tr>

@@ -73,10 +73,18 @@
             "type": "string"
         },
         "enable_MMAP": {
+            "choice": [
+                "on",
+                "off"
+            ],
             "default": "off",
             "description": "HTTP Server enable_MMAP",
             "displayname": "HTTP Server enable_MMAP",
             "hidden": "false",
+            "options": [
+                "on",
+                "off"
+            ],
             "parm_type": "node",
             "precedence_level": "node",
             "required": "true",
@@ -85,10 +93,18 @@
             "type": "string"
         },
         "enable_send_file": {
+            "choice": [
+                "on",
+                "off"
+            ],
             "default": "off",
             "description": "HTTP Server enable_send_file",
             "displayname": "HTTP Server enable_send_file",
             "hidden": "true",
+            "options": [
+                "on",
+                "off"
+            ],
             "parm_type": "node",
             "precedence_level": "node",
             "required": "true",
@@ -109,10 +125,18 @@
             "type": "string"
         },
         "hostname_lookups": {
-            "default": "off",
+            "choice": [
+                "On",
+                "Off"
+            ],
+            "default": "Off",
             "description": "HTTP Server hostname_lookups",
             "displayname": "HTTP Server hostname_lookups",
             "hidden": "true",
+            "options": [
+                "On",
+                "Off"
+            ],
             "parm_type": "node",
             "precedence_level": "node",
             "required": "true",
@@ -145,10 +169,18 @@
             "type": "string"
         },
         "keep_alive": {
-            "default": "off",
+            "choice": [
+                "On",
+                "Off"
+            ],
+            "default": "Off",
             "description": "HTTP Server TCP Keep alive",
             "displayname": "HTTP Server keep_alive",
             "hidden": "true",
+            "options": [
+                "On",
+                "Off"
+            ],
             "parm_type": "node",
             "precedence_level": "node",
             "required": "true",
@@ -255,11 +287,18 @@
                     "type": "string"
                 },
                 "ldap_user": {
+                    "choice": [
+                        "true",
+                        "false"
+                    ],
                     "default": "false",
                     "description": "HTTP Server daemon ldap_user",
                     "displayname": "HTTP Server daemon ldap_user",
                     "hidden": "false",
-                    "options": "true",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
                     "parm_type": "node",
                     "precedence_level": "node",
                     "required": "true",
@@ -330,10 +369,18 @@
                     "type": "string"
                 },
                 "ldap_user": {
+                    "choice": [
+                        "true",
+                        "false"
+                    ],
                     "default": "false",
                     "description": "Use LDAP to authenticate Web Content Owner account on Linux HTTP server as well as web site logins",
                     "displayname": "Use LDAP for Authentication",
                     "hidden": "true",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
                     "parm_type": "node",
                     "precedence_level": "node",
                     "required": "true",
@@ -461,10 +508,18 @@
         },
         "proxy": {
             "ProxyPreserveHost": {
+                "choice": [
+                    "On",
+                    "Off"
+                ],
                 "default": "On",
                 "description": "Instruct the reverse proxy to preserve original host header from the client browser",
                 "displayname": "Enable ProxyPreserveHost",
                 "hidden": "false",
+                "options": [
+                    "On",
+                    "Off"
+                ],
                 "parm_type": "node",
                 "precedence_level": "node",
                 "required": "true",
@@ -589,10 +644,18 @@
                 "type": "string"
             },
             "install_mod_ssl": {
+                "choice": [
+                    "true",
+                    "false"
+                ],
                 "default": "true",
                 "description": "Enable SSL within HTTP Server Configuration",
                 "displayname": "Enable SSL Module",
                 "hidden": "false",
+                "options": [
+                    "true",
+                    "false"
+                ],
                 "parm_type": "node",
                 "precedence_level": "node",
                 "required": "true",
@@ -601,11 +664,18 @@
                 "type": "string"
             },
             "sslcompression": {
+                "choice": [
+                    "On",
+                    "Off"
+                ],
                 "default": "Off",
                 "description": "Enable SSL compression within HTTP Server Configuration",
                 "displayname": "Enable SSL Compression",
                 "hidden": "false",
-                "options": "On",
+                "options": [
+                    "On",
+                    "Off"
+                ],
                 "parm_type": "node",
                 "precedence_level": "node",
                 "required": "true",
@@ -663,10 +733,10 @@
             }
         },
         "timeout": {
-            "default": "60",
+            "default": "off",
             "description": "httpd timeout",
             "displayname": "HTTP Server TCP timeout",
-            "hidden": "false",
+            "hidden": "true",
             "parm_type": "node",
             "precedence_level": "node",
             "required": "true",
@@ -675,10 +745,18 @@
             "type": "string"
         },
         "use_canonical_name": {
-            "default": "off",
+            "choice": [
+                "On",
+                "Off"
+            ],
+            "default": "Off",
             "description": "Should the HTTP Server use the canonical hostname",
             "displayname": "Enable HTTP Server Canonical hostname",
             "hidden": "true",
+            "options": [
+                "On",
+                "Off"
+            ],
             "parm_type": "node",
             "precedence_level": "node",
             "required": "true",
@@ -699,11 +777,18 @@
             "type": "string"
         },
         "vhosts_enabled": {
+            "choice": [
+                "true",
+                "false"
+            ],
             "default": "true",
             "description": "Allow to configure virtual hosts to run multiple websites on the same HTTP server",
             "displayname": "Enable Virtual Host Configuration",
             "hidden": "false",
-            "options": "true",
+            "options": [
+                "true",
+                "false"
+            ],
             "parm_type": "node",
             "precedence_level": "node",
             "required": "true",
@@ -716,7 +801,7 @@
                 "custom_log": {
                     "default": "",
                     "description": "Location of the HTTP Server Custom Log",
-                    "displayname": "Default HTTP Server Virtual Host Custom Log Directory",
+                    "displayname": "HTTP - Default HTTP Server Virtual Host Custom Log Directory",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -728,7 +813,7 @@
                 "custom_log_format": {
                     "default": "combined",
                     "description": "Log Format of the Custom Log",
-                    "displayname": "Default HTTP Server Virtual Host Custom Log Format",
+                    "displayname": "HTTP - Default HTTP Server Virtual Host Custom Log Format",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -740,7 +825,7 @@
                 "document_root": {
                     "default": "",
                     "description": "Location of the Default Docuement Root",
-                    "displayname": "Default HTTP Server Virtual Host Document Root",
+                    "displayname": "HTTP - Default HTTP Server Virtual Host Document Root",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -752,7 +837,7 @@
                 "error_log": {
                     "default": "",
                     "description": "Location of the HTTP Server Error Log",
-                    "displayname": "Default HTTP Server Virtual Host Error Log Directory",
+                    "displayname": "HTTP - Default HTTP Server Virtual Host Error Log Directory",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -762,11 +847,18 @@
                     "type": "string"
                 },
                 "global_ssl_config": {
+                    "choice": [
+                        "true",
+                        "false"
+                    ],
                     "default": "true",
-                    "description": "Use default global configuration for HTTPS communication in HTTP server",
-                    "displayname": "Use Default Global Configuration for HTTPS Communication",
+                    "description": "Use default global configuration for HTTP communication in HTTP server",
+                    "displayname": "HTTP - Use Default Global Configuration for HTTP Communication",
                     "hidden": "false",
-                    "options": "true",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
                     "parm_type": "node",
                     "precedence_level": "node",
                     "required": "true",
@@ -775,13 +867,33 @@
                     "type": "string"
                 },
                 "log_dir": {
-                    "displayname": "Default HTTP Server Virtual Host Log Directory",
+                    "displayname": "HTTP - Default HTTP Server Virtual Host Log Directory",
                     "hidden": "false"
+                },
+                "proxy_enabled": {
+                    "choice": [
+                        "true",
+                        "false"
+                    ],
+                    "default": "false",
+                    "description": "Enable proxy usage for virtual host for HTTP Communication in HTTP server",
+                    "displayname": "HTTP - Enable Proxy for Virtual Host for HTTP Communication",
+                    "hidden": "false",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "parm_type": "node",
+                    "precedence_level": "node",
+                    "required": "true",
+                    "secret": "false",
+                    "selectable": "true",
+                    "type": "string"
                 },
                 "server_admin": {
                     "default": "",
                     "description": "Email address of the Server Admin",
-                    "displayname": "Default HTTP Server Virtual Host Server Admin",
+                    "displayname": "HTTP - Default HTTP Server Virtual Host Server Admin",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -793,7 +905,7 @@
                 "server_name": {
                     "default": "",
                     "description": "Vhost server name for directing requests",
-                    "displayname": "Virtual Host server name for directing requests",
+                    "displayname": "HTTP - Virtual Host server name for directing requests",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -803,11 +915,18 @@
                     "type": "string"
                 },
                 "ssl_enabled": {
+                    "choice": [
+                        "true",
+                        "false"
+                    ],
                     "default": "false",
                     "description": "Enable SSL for virtual host for HTTPS communication in HTTP server",
-                    "displayname": "Enable SSL for Virtual Host for HTTPS Communication",
+                    "displayname": "HTTP - Enable SSL for Virtual Host for HTTPS Communication",
                     "hidden": "false",
-                    "options": "true",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
                     "parm_type": "node",
                     "precedence_level": "node",
                     "required": "true",
@@ -818,7 +937,7 @@
                 "vhost_listen": {
                     "default": "80",
                     "description": "Listening port configured in virtual host for HTTP communication in HTTP server",
-                    "displayname": "Listen Port in Virtual Host for HTTP communication",
+                    "displayname": "HTTP - Listen Port in Virtual Host for HTTP communication",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -830,7 +949,7 @@
                 "vhost_type": {
                     "default": "name_based",
                     "description": "Allow to configure virtual hosts to run multiple websites on the same HTTP server",
-                    "displayname": "Enable Virtual Host Configuration",
+                    "displayname": "HTTP - Virtual Host type, name-based HTTP virtual host",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -843,8 +962,8 @@
             "default_https_server": {
                 "custom_log": {
                     "default": "",
-                    "description": "Vhost custom log dir",
-                    "displayname": "DefaultHTTPSVhostCustomLogDir",
+                    "description": "HTTPS Virtual host custom log dir",
+                    "displayname": "HTTPS -  virtual host CustomLogDir",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -855,8 +974,8 @@
                 },
                 "custom_log_format": {
                     "default": "combined",
-                    "description": "Vhost custom log format",
-                    "displayname": "DefaultHTTPSVhostCustomLogFormat",
+                    "description": "HTTPS Virtual host custom log format",
+                    "displayname": "HTTPS -  virtual host CustomLogFormat",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -867,8 +986,8 @@
                 },
                 "document_root": {
                     "default": "",
-                    "description": "Vhost document root",
-                    "displayname": "DefaultHTTPSVhostDocumentRoot",
+                    "description": "HTTPS virtual host document root",
+                    "displayname": "HTTPS - virtual host DocumentRoot",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -879,8 +998,8 @@
                 },
                 "error_log": {
                     "default": "",
-                    "description": "Vhost error log dir",
-                    "displayname": "DefaultHTTPSVhostErrorLogDir",
+                    "description": "HTTPS Virtual host error log dir",
+                    "displayname": "HTTPS -  virtual host ErrorLogDir",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -890,11 +1009,18 @@
                     "type": "string"
                 },
                 "global_ssl_config": {
+                    "choice": [
+                        "true",
+                        "false"
+                    ],
                     "default": "true",
                     "description": "Use default global configuration for HTTPS communication in HTTP server",
-                    "displayname": "Use Default Global Configuration for HTTPS Communication",
+                    "displayname": "HTTPS - Use Default Global Configuration for HTTPS Communication",
                     "hidden": "false",
-                    "options": "true",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
                     "parm_type": "node",
                     "precedence_level": "node",
                     "required": "true",
@@ -904,8 +1030,8 @@
                 },
                 "log_dir": {
                     "default": "",
-                    "description": "Vhost log dir",
-                    "displayname": "DefaultHTTPSVhostLogDir",
+                    "description": "HTTPS virtual host log dir",
+                    "displayname": "HTTPS -  virtual host LogDir",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -915,10 +1041,18 @@
                     "type": "string"
                 },
                 "proxy_enabled": {
+                    "choice": [
+                        "true",
+                        "false"
+                    ],
                     "default": "true",
                     "description": "Enable proxy configuration",
-                    "displayname": "DefaultHTTPSGlobalSSLConfig",
+                    "displayname": "HTTPS -  virtual host enable proxy configuration",
                     "hidden": "false",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
                     "parm_type": "node",
                     "precedence_level": "node",
                     "required": "true",
@@ -928,8 +1062,8 @@
                 },
                 "server_admin": {
                     "default": "",
-                    "description": "Vhost Server admin",
-                    "displayname": "DefaultHTTPSVhostServerAdmin",
+                    "description": "HTTPS Virtual host server admin",
+                    "displayname": "HTTPS -  virtual host ServerAdmin",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -940,8 +1074,8 @@
                 },
                 "server_name": {
                     "default": "",
-                    "description": "Vhost server name for directing requests",
-                    "displayname": "DefaultHTTPSVhostServerName",
+                    "description": "HTTPS Virtual host server name for directing requests",
+                    "displayname": "HTTPS -  virtual host servername",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -951,11 +1085,18 @@
                     "type": "string"
                 },
                 "ssl_enabled": {
+                    "choice": [
+                        "true",
+                        "false"
+                    ],
                     "default": "true",
-                    "description": "Enable SSL for virtual host for HTTP communication in HTTP server",
-                    "displayname": "Enable SSL for Virtual Host for HTTP Communication",
+                    "description": "HTTPS - Enable SSL for virtual host for HTTP communication in HTTP server",
+                    "displayname": "HTTPS - Enable SSL for Virtual Host for HTTP Communication",
                     "hidden": "false",
-                    "options": "true",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
                     "parm_type": "node",
                     "precedence_level": "node",
                     "required": "true",
@@ -966,7 +1107,7 @@
                 "vhost_listen": {
                     "default": "443",
                     "description": "Listening port configured in virtual host for HTTPS communication in HTTP server",
-                    "displayname": "Listen Port in Virtual Host for HTTPS communication",
+                    "displayname": "HTTPS - Listen Port in Virtual Host for HTTPS communication",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
@@ -977,8 +1118,8 @@
                 },
                 "vhost_type": {
                     "default": "name_based",
-                    "description": "Specify type of virtual host for HTTP communication in HTTP server",
-                    "displayname": "Type of Virtual Host for HTTP communication",
+                    "description": "Specify type of virtual host for HTTPS communication in HTTPS server",
+                    "displayname": "HTTPS - Virtual Host type, name-based HTTPS virtual host",
                     "hidden": "false",
                     "parm_type": "node",
                     "precedence_level": "node",
