@@ -2,7 +2,7 @@
 # Cookbook Name:: httpd
 # attributes :: internal
 #
-# Copyright IBM Corp. 2016, 2017
+# Copyright IBM Corp. 2016, 2018
 
 #-------------------------------------------------------------------------------
 # Landscaper compatibility attributes
@@ -85,17 +85,17 @@ when 'debian'
   # <> PHP packages ubuntu
   if node['platform'] == 'ubuntu'
     if node['platform_version'].split('.').first.to_i == 14
-      force_default['httpd']['php_packages'] = ['php5', 'libapache2-mod-php5']      
+      force_default['httpd']['php_packages'] = ['php5', 'libapache2-mod-php5']
     elsif node['platform_version'].split('.').first.to_i == 16
       force_default['httpd']['php_packages'] = ['php', 'libapache2-mod-php', 'php-mcrypt']
     end
   end
   # <> Prereqisite packages
   if node['platform'] == 'ubuntu'
-    if node['platform_version'].split('.').first.to_i == 14 
+    if node['platform_version'].split('.').first.to_i == 14
       force_default['httpd']['prereq_packages'] = ['python3-openssl', 'openssl', 'net-tools']
     elsif node['platform_version'].split('.').first.to_i == 16
-      force_default['httpd']['prereq_packages'] = ['python3-cffi-backend-api-9729', 'python3-idna', 'python3-pyasn1', 'python3-cryptography', 'python3-openssl', 'openssl', 'net-tools'] 
+      force_default['httpd']['prereq_packages'] = ['python3-cffi-backend-api-9729', 'python3-idna', 'python3-pyasn1', 'python3-cryptography', 'python3-openssl', 'openssl', 'net-tools']
     end
   end
   # <> HTTP packages
@@ -122,7 +122,8 @@ force_override['httpd']['expand_area'] = node['ibm']['expand_area'] + '/' + 'htt
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => '',
-# <md>          :selectable => 'false',
+# <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true'
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 force_default['httpd']['vault']['name'] = node['ibm_internal']['vault']['name']
@@ -134,7 +135,8 @@ force_default['httpd']['vault']['name'] = node['ibm_internal']['vault']['name']
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => '',
-# <md>          :selectable => 'false',
+# <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true'
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 force_default['httpd']['vault']['encrypted_id'] = node['ibm_internal']['vault']['item']
