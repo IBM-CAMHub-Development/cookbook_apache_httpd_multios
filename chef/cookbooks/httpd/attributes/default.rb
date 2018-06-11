@@ -650,8 +650,7 @@ default['httpd']['os_users']['daemon'] = {
   'ldap_user' => 'false',
   'home'      => "#{node['httpd']['install_dir']}/usr/share/httpd",
   'comment'   => 'httpd daemon user',
-  'shell'     => '/sbin/nologin'
-}
+  'shell'     => '/sbin/nologin' }
 
 # <> Web content owner
 # <md>attribute 'httpd/os_users/web_content_owner/name',
@@ -731,12 +730,11 @@ default['httpd']['os_users']['daemon'] = {
 # <md>          :secret => 'false'
 default['httpd']['os_users']['web_content_owner'] = {
   'name'      => 'webmaster',
-  'gid'       => node['httpd']['os_users']['daemon']['gid'],
+  'gid'       => 'apache',
   'ldap_user' => 'false',
   'home'      => '/home/webmaster',
   'comment'   => 'Web content owner',
-  'shell'     => '/bin/bash'
-}
+  'shell'     => '/bin/bash' }
 
 #-------------------------------------------------------------------------------
 # SSL configuration
@@ -1025,8 +1023,7 @@ default['httpd']['virtualhosts']= {
     # <> Proxy Enabled for Virtual Host
     'proxy_enabled' => 'false',
     # <> Global SSL configuration
-    'global_ssl_config' => 'true'
-  },
+    'global_ssl_config' => 'true' },
 
   # <md>attribute 'httpd/virtualhosts/default_https_server/vhost_type',
   # <md>          :displayname =>  'HTTPS - Virtual Host type, name-based HTTPS virtual host',
@@ -1188,10 +1185,7 @@ default['httpd']['virtualhosts']= {
     # <> Proxy Enabled for Virtual Host
     'proxy_enabled' => 'false',
     # <> Global SSL configuration
-    'global_ssl_config' => 'true'
-
-  }
-}
+    'global_ssl_config' => 'true' } }
 
 # <> Apache HTTPD proxy settings
 # <md>attribute 'httpd/proxy/ProxyPreserveHost',
@@ -1253,6 +1247,4 @@ default['httpd']['virtualhosts']= {
 default['httpd']['proxy'] = {
   'ProxyPreserveHost' => 'On',
   'rules' => { 'ProxyPass' => [],
-               'ProxyPassReverse' => []
-  }
-}
+               'ProxyPassReverse' => [] } }

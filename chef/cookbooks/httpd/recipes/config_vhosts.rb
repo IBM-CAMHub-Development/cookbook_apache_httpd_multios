@@ -1,7 +1,7 @@
 # Cookbook Name:: httpd
 # Recipe:: config_vhosts
 #
-# Copyright IBM Corp. 2016, 2017
+# Copyright IBM Corp. 2016, 2018
 #
 # <> vhost configuration recipe (config_vhost.rb)
 # <> Create vhost configuration file
@@ -85,9 +85,6 @@ virtual_hosts.each do |vhost_name, vhost|
           notifies :restart, "service[#{node['httpd']['service_name']}]"
         end
       end
-
-    when 'windows'
-      # TODO windows implementation
     end
   end
 

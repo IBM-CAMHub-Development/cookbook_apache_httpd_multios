@@ -2,6 +2,11 @@ name 'httpd'
 maintainer 'IBM Corp'
 maintainer_email ''
 license 'Copyright IBM Corp. 2016, 2018'
+issues_url   'https://github.com/IBM-CAMHub-Open/cookbook_ibm_cloud_utils_multios/issues'
+source_url   'https://github.com/IBM-CAMHub-Open/cookbook_ibm_cloud_utils_multios'
+chef_version '>= 12.5' if respond_to?(:chef_version)
+supports 'redhat'
+supports 'ubuntu'
 depends 'ibm_cloud_utils'
 description <<-EOH
 ## DESCRIPTION
@@ -23,7 +28,7 @@ Apache HTTP Server 2.4
 
 EOH
 
-version '1.0.2'
+version '2.0.0'
 
 attribute 'httpd/conf_file_mode',
           :default => '0640',

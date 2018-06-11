@@ -25,7 +25,8 @@ Requirements
 
 ### Platform:
 
-*No platforms defined*
+* Redhat
+* Ubuntu
 
 ### Cookbooks:
 
